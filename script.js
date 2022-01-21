@@ -53,6 +53,7 @@ const initApp = () => {
 
             // complete equation
             if(itemArray.length){
+
                 itemArray.push(currentVal); // 3rd elem
 
                 const equationObj = {
@@ -65,7 +66,7 @@ const initApp = () => {
                 const equationString = 
                     `${equationObj['num1']}
                     ${equationObj['op']}
-                    ${equationObj['num2']}`
+                    ${equationObj['num2']}`;
 
                 const newValue = calculate(equationString, currentValueElem);
 
@@ -93,7 +94,7 @@ const initApp = () => {
                 num2: lastEquation.num2,
                 op: lastEquation.op
             }
-        } else if (itemArray.length) {
+        } else if (!itemArray.length) {
             return currentVal;
         } else {
             itemArray.push(currentVal);
@@ -111,7 +112,7 @@ const initApp = () => {
 
         calculate(equationString, currentValueElem);
         
-        previousValueElem.textContext = `${equationString} =`;
+        previousValueElem.textContent = `${equationString} =`;
 
         newNumberFlag = true;
         itemArray = [];
